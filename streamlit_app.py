@@ -4,6 +4,9 @@ from langchain.chat_models import ChatOpenAI
 from langchain.tools import DuckDuckGoSearchRun
 import streamlit as st
 
+st.markdown("# Main page 🎈")
+st.sidebar.markdown("# Main page 🎈")
+
 st.set_page_config(page_title="LangChain: Chat with search", page_icon="🦜")
 st.title("🦜 LangChain: Chat with search")
 
@@ -22,7 +25,7 @@ if prompt := st.chat_input(placeholder="Who won the Women's U.S. Open in 2018?")
         st.info("Please add your OpenAI API key to continue.")
         st.stop()
 
-    llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=openai_api_key, streaming=True)
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo-16k-0613", openai_api_key=openai_api_key, streaming=True)
     search_agent = initialize_agent(
         tools=[DuckDuckGoSearchRun(name="Search")],
         llm=llm,
