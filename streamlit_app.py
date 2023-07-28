@@ -11,7 +11,7 @@ st.sidebar.markdown("# Main page 🎈")
 
 st.title("🦜 LangChain: Chat with search")
 
-openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+openai_api_key = "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"
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
