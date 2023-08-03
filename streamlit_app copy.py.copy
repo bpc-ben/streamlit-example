@@ -7,22 +7,6 @@ import streamlit as st
 st.set_page_config(page_title="LangChain: Chat with search", page_icon="🦜")
 st.title("🦜 LangChain: Chat with search")
 
-
-from langchain.chains.api.prompt import API_RESPONSE_PROMPT
-from langchain.chains import APIChain
-from langchain.prompts.prompt import PromptTemplate
-
-
-from langchain.llms import OpenAI
-
-llm = OpenAI(temperature=0,openai_api_key="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")
-
-# Function to find competitor names
-def get_competitor_names():
-
-    pass
-
-
 if 'openai_api_key' not in st.session_state:
     st.session_state.openai_api_key = ""
 st.session_state.openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password",value=st.session_state.openai_api_key)
@@ -33,7 +17,7 @@ if "messages" not in st.session_state:
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
-if prompt := st.chat_input(placeholder="Please enter your brand name:"):
+if prompt := st.chat_input(placeholder="Who won the Women's U.S. Open in 2018?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 

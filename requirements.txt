@@ -4,3 +4,6 @@ streamlit
 langchain
 openai
 duckduckgo-search
+wikipedia
+google-api-python-client
+chromadb
